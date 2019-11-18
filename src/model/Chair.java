@@ -3,13 +3,12 @@ package model;
 public class Chair {
     private String line;
     private int chairNumber;
-    private String description;
     private String status;
-    private double porcentaje;
 
     public Chair(String line, int chairNumber) {
         this.line = line;
         this.chairNumber = chairNumber;
+        this.status = "ACTIVE";
     }
 
     public String getLine() {
@@ -28,14 +27,7 @@ public class Chair {
         this.chairNumber = chairNumber;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
+    
     public String getStatus() {
         return status;
     }
@@ -44,7 +36,4 @@ public class Chair {
         this.status = status;
     }
 
-    public double getPorcentaje() {
-        return porcentaje;
-    }
 }

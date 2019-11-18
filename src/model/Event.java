@@ -1,6 +1,6 @@
 package model;
 
-public class event {
+public class Event {
     private String name;
     private String date;
     private int timeStart;
@@ -9,7 +9,7 @@ public class event {
     private String facultyName;
     private int peopleTotal;
 
-    public event(String name, String date, int timeStart, int timeEnds, String teacherName, String facultyName,
+    public Event(String name, String date, int timeStart, int timeEnds, String teacherName, String facultyName,
             int peopleTotal) {
         this.name = name;
         this.date = date;
