@@ -1,8 +1,15 @@
 package model;
 
+import java.util.ArrayList;
 
+/**
+ * Audience 
+ * @author Jhonny 
+ *
+ */
 public class Audience {
     private String name;
+    private ArrayList<Event> events;
     private String location;
     private int totalTime;
     private String status;
@@ -31,10 +38,10 @@ public class Audience {
         return max;
     }
 
-    /*
-     * CreateChairs 
-     * 
-     * */
+    /**
+     * createChairs creates the chair in matrix, 
+     * @param quantiyCharisByRow array with quantity of chairs by row
+     */
     public void createChairs(int[] quantiyCharisByRow) {
         int columns = maxValue(quantiyCharisByRow);
         int rows = quantiyCharisByRow.length;
@@ -51,6 +58,11 @@ public class Audience {
         }
     }
     
+    /**
+     * percentDamageChair
+     * 
+     * @return percent of damage chairs 
+     */
     public float percentDamageChair() {
     	float percent = 0;
     	int rows = chairs.length;
@@ -72,6 +84,11 @@ public class Audience {
     	return percent;
     }
     
+    /**
+     * Report a damage chair 
+     * @param rowChair letter of row 
+     * @param numberChair number of chair in row 
+     */
     public void reportDamageChair(String rowChair, int numberChair) {
     	int row = getRowByLetter(rowChair);
     	Chair chair = chairs[row][numberChair-1];
@@ -87,6 +104,14 @@ public class Audience {
     		}
     	}
     	return index;
+    }
+    
+    public ArrayList<Event> getEvents(){
+    	return this.events;
+    }
+    
+    public void addEvent(Event event) {
+    	this.events.add(event);
     }
 
     public String getName() {

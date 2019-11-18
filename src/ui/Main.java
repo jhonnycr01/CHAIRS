@@ -9,7 +9,7 @@ public class Main {
 
 	private static String letters[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
             "S", "T", "U", "V", "W", "X", "Y", "Z" };
-	public static enum Opcion { REPORT_DAMAGE_CHAIR, PERCENT_DAMAGE_CHAIR, CREATE_EVENT }
+	public static enum Opcion { REPORT_DAMAGE_CHAIR, PERCENT_DAMAGE_CHAIR, CREATE_EVENT };
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         University university = new University("ICESI");
@@ -114,7 +114,12 @@ public class Main {
        
     }
     
-    static void listAudience(University university) {
+    /**
+     *listAudience
+     * @param university with audiences   
+     * List the audiences of the university
+     * */
+    public static void listAudience(University university) {
     	ArrayList<Audience> audiences =university.getAudiences();
     	System.out.println("\n===============================");
     	for(int x =0; x< audiences.size();x++) {
@@ -125,8 +130,13 @@ public class Main {
     	
     }
 
-
-    static void menuAudience(University university, Scanner reader, Opcion basicOperation) {
+    /**
+     * 
+     * @param university with all data 
+     * @param reader for request data 
+     * @param basicOperation type of operate
+     */
+    public static void menuAudience(University university, Scanner reader, Opcion basicOperation) {
     	
         
         String rowChair;
@@ -187,6 +197,9 @@ public class Main {
 
                 System.out.println(" please enter the total of people attending to the event");
                 peopleTotal = reader.nextInt();
+                
+                Event event = new Event(nameEvent,date,timeStart,timeEnds,teacherName,facultyName,peopleTotal);
+                audience.addEvent(event);
 
                 break;
 
