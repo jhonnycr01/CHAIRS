@@ -9,7 +9,18 @@ public class Event {
     private String facultyName;
     private int peopleTotal;
 
-    public Event(String name, String date, int timeStart, int timeEnds, String teacherName, String facultyName,
+    /**
+     * Create the event in Audience 
+     * @param name of event
+     * @param date of event
+     * @param timeStart when event start
+     * @param timeEnds when event ends
+     * @param teacherName person who runs the event
+     * @param facultyName group of university who uses the audience
+     * @param peopleTotal number of persons use the audience
+     */
+    public Event(String name, String date, int timeStart, int timeEnds,
+    		String teacherName, String facultyName,
             int peopleTotal) {
         this.name = name;
         this.date = date;

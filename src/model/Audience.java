@@ -14,9 +14,19 @@ public class Audience {
     private int totalTime;
     private String status;
     private Chair chairs[][];
+    /**
+	 * Array of letter for rows of the audiences
+	 */
     private String letters[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
             "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
+    /**
+     * Create an audience
+     * @param name with identify the audience
+     * @param location of the audience
+     * @param totalTime available of audience
+     * @param status of audience
+     */
     public Audience(String name, String location, int totalTime, String status) {
         this.name = name;
         this.location = location;

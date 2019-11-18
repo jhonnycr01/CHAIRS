@@ -1,12 +1,13 @@
 package ui;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import model.*;
 
 public class Main {
-
+	/**
+	 * Array of letter for rows of the audiences
+	 */
 	private static String letters[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
             "S", "T", "U", "V", "W", "X", "Y", "Z" };
 	public static enum Opcion { REPORT_DAMAGE_CHAIR, PERCENT_DAMAGE_CHAIR, CREATE_EVENT };
