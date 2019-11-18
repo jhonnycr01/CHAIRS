@@ -9,6 +9,7 @@ public class Main {
 
 	private static String letters[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
             "S", "T", "U", "V", "W", "X", "Y", "Z" };
+	public static enum Opcion { REPORT_DAMAGE_CHAIR, PERCENT_DAMAGE_CHAIR, CREATE_EVENT }
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         University university = new University("ICESI");
@@ -18,6 +19,7 @@ public class Main {
         audience2.createChairs(new int[]{10,12,14});
         university.addAudience(audience1);
         university.addAudience(audience2);
+        
         
         int option;
 
@@ -90,22 +92,17 @@ public class Main {
             	System.out.flush();
             	break;
             case 3:
-            	int audienceNumber;
-            	listAudience(university);
-            	System.out.print("Selecciona el numero Auditorio: ");
-            	audienceNumber = reader.nextInt();
-            	audience = university.getAudiences().get(audienceNumber-1);
-            	menuAudience(audience, reader);
+            	//Report Damage CHAIR
+            	menuAudience(university, reader, Opcion.REPORT_DAMAGE_CHAIR);
             	
             	break;
             case 4:
             	// Percent Damage Chairs
-            	listAudience(university);
-            	System.out.print("Selecciona el numero Auditorio: ");
-            	audienceNumber = reader.nextInt();
-            	audience = university.getAudiences().get(audienceNumber-1);
-            	menuAudience(audience, reader, );
+            	menuAudience(university, reader, Opcion.PERCENT_DAMAGE_CHAIR);
             	break;
+            case 5:
+            	//Create Event Audience
+            	menuAudience(university, reader, Opcion.CREATE_EVENT);
             case 0:
             	System.out.println("Bye!");
             	break;
@@ -129,7 +126,7 @@ public class Main {
     }
 
 
-    static void menuAudience(Audience audience, Scanner reader, int basicOperation) {
+    static void menuAudience(University university, Scanner reader, Opcion basicOperation) {
     	
         
         String rowChair;
@@ -143,21 +140,16 @@ public class Main {
         String facultyName;
         int peopleTotal;
         float percentDamageChair;
+        int audienceNumber;
+        
+        listAudience(university);
+    	System.out.print("Selecciona el numero Auditorio: ");
+    	audienceNumber = reader.nextInt();
+    	Audience audience = university.getAudiences().get(audienceNumber-1);
 
-
-        // do {
-        //     System.out.println("\n\n\n\n\n\n");
-        //     System.out.println("what option would you like to do (if you would like to exit enter -1) \n"
-        //             + "1. report a damage chair \n" 
-        //             + "2. percentage of damage chairs \n"
-        //             + "3. register a event \n" 
-        //             + "0. Regresar");
-        //     basicOperation = reader.nextInt();
-        //     reader.nextLine();
-
-            switch (basicOperation) {
-            case 1:
-            	
+        switch (basicOperation) {
+            case REPORT_DAMAGE_CHAIR:
+            	//Report Damage Chair
             	System.out.println("Please enter the row of the chair to report");
             	rowChair = reader.nextLine();
             	
@@ -168,12 +160,12 @@ public class Main {
             	
                 break;
 
-            case 2:
+            case PERCENT_DAMAGE_CHAIR:
             	percentDamageChair = audience.percentDamageChair();
             	System.out.println("percentage of damage chairs: "+ percentDamageChair);
                 break;
 
-            case 3:
+            case CREATE_EVENT:
             	
                 System.out.println("please enter the name of the event");
                 nameEvent = reader.nextLine();
@@ -198,13 +190,7 @@ public class Main {
 
                 break;
 
-            case 4:
-            	break;
-            case 0:            	
-            	break;
-            }
-
-        // } while (basicOperation != 0);
+        }
 
     }
 }
